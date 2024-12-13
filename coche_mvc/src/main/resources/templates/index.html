@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Coches</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Coches</title>
+    <!-- Agrega tus enlaces a CSS y JavaScript si es necesario -->
+</head>
+<body>
+<h1>Coches</h1>
+<div th:each="coche : ${coches}">
+    <p th:text="${coche.nombre}">Nombre del coche</p>
+    <p th:text="${coche.precio}">Precio del coche</p>
+    <!-- Enlace para editar -->
+    <a th:href="@{/coche/editar/{id}(id=${coche.id})}">Editar</a>
+    <!-- Enlace para eliminar -->
+    <a th:href="@{/coche/eliminar/{id}(id=${coche.id})}" th:onclick="'return confirm(\'' + '¿Estás seguro de que quieres eliminar este coche?' + '\')'">Eliminar</a>
+</div>
+
+<!-- Enlace para agregar un nuevo producto -->
+<a th:href="@{/coche/nuevo}">Agregar Nuevo Coche</a>
+
+</body>
+</html>
