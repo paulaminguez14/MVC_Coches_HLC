@@ -9,6 +9,11 @@
 	 <!-- Campo oculto para el ID del coche -->
     <input type="hidden" name="id" th:value="*{id}" />
     Nombre: <input type="text" th:field="*{nombre}" />
+	<div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+	Matrícula: <input type="text" th:field="*{matricula}" />
+	<div th:if="${#fields.hasErrors('matricula')}" th:errors="*{matricula}"></div>
+	Color: <input type="text" th:field="*{color}" />
+	<div th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></div>
     Precio: <input type="number" th:field="*{precio}" />
     <input type="submit" value="Guardar" />
 </form>
