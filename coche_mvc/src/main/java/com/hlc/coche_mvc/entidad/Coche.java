@@ -10,60 +10,61 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 public class Coche {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	private String Nombre;
-	@NotBlank(message = "El nombre no puede estar vacio")
-	@Size(min=2, max=50, message="El nombre debe tener entre 2 y 50 carácteres")
-	
-	private Double Precio;
-	
-	private String Matricula;
-	@Pattern(regexp = "^\\d{4}[A-Za-z]{3}$", message = "La matrícula debe tener 4 dígitos seguidos de 3 letras (ej: 5251MHX).")
 
-	private String Color;
-	@Pattern(regexp = "^(rojo|azul|verde|amarillo)$", message = "El color debe ser uno de: rojo, azul, verde o amarillo.")
-	
-	public Long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @NotBlank(message = "El nombre no puede estar vacío")
+    @Size(min = 2, max = 50, message = "El nombre debe tener entre 2 y 50 caracteres")
+    private String nombre;
 
-	public String getNombre() {
-		return Nombre;
-	}
+    private Double precio;
 
-	public void setNombre(String nombre) {
-		Nombre = nombre;
-	}
+    @Pattern(regexp = "^\\d{4}[A-Za-z]{3}$", message = "La matrícula debe tener 4 dígitos seguidos de 3 letras (ej: 5251MHX).")
+    private String matricula;
 
-	public Double getPrecio() {
-		return Precio;
-	}
+    @Pattern(regexp = "^(rojo|azul|verde|amarillo)$", message = "El color debe ser uno de: rojo, azul, verde o amarillo.")
+    private String color;
 
-	public void setPrecio(Double precio) {
-		Precio = precio;
-	}
-	
-	public String getMatricula() {
-		return Matricula;
-	}
+    // Getters y Setters
+    public Long getId() {
+        return id;
+    }
 
-	public void setMatricula(String matricula) {
-		Matricula = matricula;
-	}
-	
-	public String getColor() {
-		return Color;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setColor(String color) {
-		Color = color;
-	}
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 }
