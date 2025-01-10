@@ -26,8 +26,29 @@ public class Coche {
 
     @Pattern(regexp = "^(rojo|azul|verde|amarillo)$", message = "El color debe ser uno de: rojo, azul, verde o amarillo.")
     private String color;
+    
+    
 
-    // Getters y Setters
+	public Coche() {
+	}
+	
+	
+
+	public Coche(@NotBlank(message = "El nombre no puede estar vacío") @Size(min = 2, max = 50, message = "El nombre debe tener entre 2 y 50 caracteres") String nombre,
+			Double precio,
+			@Pattern(regexp = "^\\d{4}[A-Za-z]{3}$", message = "La matrícula debe tener 4 dígitos seguidos de 3 letras (ej: 5251MHX).") String matricula,
+			@Pattern(regexp = "^(rojo|azul|verde|amarillo)$", message = "El color debe ser uno de: rojo, azul, verde o amarillo.") String color) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.precio = precio;
+		this.matricula = matricula;
+		this.color = color;
+	}
+
+
+
+	// Getters y Setters
     public Long getId() {
         return id;
     }
